@@ -1,0 +1,118 @@
+@import './mixin';
+html, body {
+  width: 100%;
+  // max-width: 750px;
+  margin: 0 auto;
+  height: 100%;
+  background-color: #f7f7f7;
+  font-family: BlinkMacSystemFont, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  #app {
+    height: 100%;
+    >div {
+      height: 100%;
+    }
+  }
+}
+body {
+	font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+}
+/******************** html/body ************************/
+body.addBg {
+    background-color: #f0f0f0;
+}
+/******************** 头部导航 ********************/
+.vux-header .vux-header-left .left-arrow:before {
+    border-color: #fff;
+    width: 14px;
+    height: 14px;
+}
+
+/********************* x-header ************/
+.vux-header .vux-header-title { color: #333; font-size: px2rem(32); }
+.vux-header.noBgc .vux-header-title { color: #333; font-weight: 700; font-size: px2rem(32); }
+.fill-header-box { height: 50px; background-color: transparent;}
+
+/***************** self-popover ************/
+.self-popover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 0 0 5px #fffaf4;
+  border-radius: 3px;
+  z-index: 999;
+  .self-popover-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    &.self-popover-arrow-down {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #ffffff;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      bottom: -5px;
+    }
+  }
+  .self-popover-content {
+    padding: 5px 10px;
+    color: #333;
+    font-size: px2rem(32);
+  }
+}
+/*************** input placeholder *****************/
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #9b9b9b;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color: #9b9b9b;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color: #9b9b9b;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #9b9b9b;
+}
+/********************** 手机端禁止文本选中 ************************/
+h1, h2, h3, h4, h5, h6, p, span, div, i, img {
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+/*适配分辨率*/
+@media screen and (min-width:320px){
+	html{
+		font-size: 42.67px;
+	}
+}
+@media screen and (min-width:360px){
+	html{
+		font-size: 48px;
+	}
+}
+@media screen and (min-width:375px){
+	html{
+		font-size: 50px;
+	}
+}
+@media screen and (min-width:414px){
+	html{
+		font-size: 55.2px;
+	}
+}
+@media screen and (min-width:480px){
+	html{
+		font-size: 64px;
+	}
+}
+@media screen and (min-width:768px){
+	html{
+		font-size: 55.2px;
+	}
+}

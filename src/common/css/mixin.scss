@@ -1,0 +1,116 @@
+// 设计图宽度是750
+$design-width: 750;
+
+@function px2rem( $px )
+{
+  @return $px / $design-width * 7.5 + rem; //对应js
+}
+
+$headColor: #fff;
+$btnColor: #4b4f58;
+$bc: #fff;
+$fc: #fff;
+
+// 背景图片地址和大小
+@mixin bis($url) {
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+@mixin borderRadius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+//定位全屏
+@mixin allcover{
+	position:absolute;
+	top:0;
+    bottom: 0;
+    left: 0;
+	right:0;
+}
+
+//定位上下左右居中
+@mixin center {
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+//定位上下居中
+@mixin ct {
+	position: absolute;
+	top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+//定位左右居中
+@mixin cl {
+	position: absolute;
+	left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+//宽高
+@mixin wh($width, $height){
+	width: $width;
+	height: $height;
+}
+
+//字体大小、行高、字体
+@mixin font($size, $line-height, $family: 'Microsoft YaHei') {
+	font: $size/$line-height $family;
+}
+
+//字体大小，颜色
+@mixin sc($size, $color){
+	font-size: $size;
+	color: $color;
+}
+
+//flex 布局和 子元素 对其方式
+@mixin fj($type: space-between){
+	display: flex;
+	justify-content: $type;
+}
+/*边框线 设置.5px的边框线
+   $linePos - T B L R (上 下 左 右) 默认 L
+   $scale - 边框线缩放比例(以1px为基础缩放,0.5即为0.5px, 1即为1px 2即为2px) 默认 0.5
+   $lineColor - 边框的颜色 默认#c8c7cc
+*/
+@mixin line($linePos: 'L',$lineColor: #c8c7cc, $scale: 0.5){
+    position: absolute;
+    content: '';
+    background-color: $lineColor;
+    @if $linePos == 'T' or $linePos == 'B' {
+        left: 0;
+        right: 0;
+        height: 1px;
+        @if $linePos == 'T' {
+            top: 0;
+        } @else if $linePos == 'B' {
+            bottom: 0;
+        }
+        -webkit-transform: scaleY($scale);
+        transform: scaleY($scale);
+    } @else if $linePos == 'L' or $linePos == 'R' {
+        bottom: 0;
+        top: 0;
+        width: 1px;
+        @if $linePos == 'L' {
+           left: 0;
+        } @else if $linePos == 'R' {
+           right: 0;
+        }
+        -webkit-transform: scaleX($scale);
+        transform: scaleX($scale);
+    }
+}
